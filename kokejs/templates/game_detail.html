@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ game.home_team }} vs {{ game.away_team }}</h1>
+<div class="game-meta">
+    <span>{{ game.game_date }}</span>
+    <span>{{ game.location }}</span>
+    <span class="score">{{ game.score }}</span>
+</div>
+
+<h2>Spēles statistika</h2>
+<table>
+    <tr>
+        <th>Spēlētājs</th>
+        <th>Vārti</th>
+        <th>Piespēles</th>
+        <th>+/-</th>
+        <th>Sodi (min)</th>
+    </tr>
+    {% for stat in stats %}
+    <tr>
+        <td>{{ stat.first_name }} {{ stat.last_name }}</td>
+        <td>{{ stat.goals }}</td>
+        <td>{{ stat.assists }}</td>
+        <td>{{ stat.plus_minus }}</td>
+        <td>{{ stat.penalty_minutes }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

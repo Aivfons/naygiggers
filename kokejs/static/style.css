@@ -58,3 +58,93 @@ th {
     color: #a00;
     font-size: 1.1em;
 }
+/* Add these new styles */
+.player-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.player-meta {
+    display: flex;
+    gap: 20px;
+    color: #666;
+}
+
+.game-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.score {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #a00;
+}
+
+.player-stats table, .game-stats table {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.player-stats th, .game-stats th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+}
+
+.player-stats td, .game-stats td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+/* Add these new styles */
+.player-info {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.career-totals {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.totals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.totals-grid div span {
+    font-weight: bold;
+    color: #a00;
+}
+
+.game-log table {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.game-log th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+}
+
+.game-log td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.no-data {
+    text-align: center;
+    color: #666;
+    padding: 20px !important;
+}

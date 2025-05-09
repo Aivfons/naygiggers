@@ -7,12 +7,14 @@
         <th>Vārds</th>
         <th>Uzvārds</th>
         <th>Komanda</th>
+        <th>Detaļas</th>
     </tr>
     {% for player in players %}
     <tr>
-        <td>{{ player['first_name'] }}</td>
-        <td>{{ player['last_name'] }}</td>
-        <td>{{ player['team_name'] or 'Nav komandas' }}</td>
+        <td>{{ player.first_name }}</td>
+        <td>{{ player.last_name }}</td>
+        <td>{{ player.team_name or 'Nav komandas' }}</td>
+        <td><a href="{{ url_for('player_detail', player_id=player.player_id) }}">Skatīt</a></td>
     </tr>
     {% endfor %}
 </table>

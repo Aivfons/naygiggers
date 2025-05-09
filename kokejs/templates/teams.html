@@ -6,11 +6,15 @@
     <tr>
         <th>Nosaukums</th>
         <th>Pilsēta</th>
+        <th>Līga</th>
+        <th>Arena</th>
     </tr>
     {% for team in teams %}
     <tr>
-        <td>{{ team['name'] }}</td>
-        <td>{{ team['city'] }}</td>
+        <td>{{ team.name }}</td>
+        <td>{{ team.city }}</td>
+        <td>{{ team.league }}</td>
+        <td>{{ team.arena or '-' }}</td>
     </tr>
     {% endfor %}
 </table>

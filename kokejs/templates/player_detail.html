@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="player-header">
+    <h1>{{ player.first_name }} {{ player.last_name }}</h1>
+    <div class="player-info">
+        <span>#{{ player.jersey_number }}</span>
+        <span>{{ player.position }}</span>
+        <span>{{ player.team_name }}</span>
+    </div>
+</div>
+
+<div class="career-totals">
+    <h3>Karjeras kopsavilkums:</h3>
+    <div class="totals-grid">
+        <div>Vārti: <span>{{ totals.total_goals or 0 }}</span></div>
+        <div>Piespēles: <span>{{ totals.total_assists or 0 }}</span></div>
+        <div>Sodi: <span>{{ totals.total_penalty_minutes or 0 }} min</span></div>
+        {% if player.position == 'Goalie' %}
+        <div>Atvairītie metieni: <span>{{ totals.total_saves or 0 }}</span></div>
+        <div>Precizitāte: <span>
+            {% if totals.total_shots_against %}
+                {{ "%.1f"|format((totals.total_saves/totals.total_shots_against)*100) }}%
+            {% else %}
+                0%
+            {% endif %}
+        </span></div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="game-log">
+    <h3>Spēļu statistika:</h3>
+    <table>
+        <tr>
+            <th>Datums</th>
+            <th>Pretinieks</th>
+            <th>Vārti</th>
+            <th>Piespēles</th>
+            <th>+/-</th>
+            <th>Sodi</th>
+            {% if player.position == 'Goalie' %}
+            <th>Atvairīti</th>
+            <th>Metieni</th>
+            {% endif %}
+        </tr>
+        {% for stat in stats %}
+        <tr>
+            <td>{{ stat.game_date }}</td>
+            <td>
+                {% if player.team_id == stat.home_team_id %}
+                    vs {{ stat.away_team }}
+                {% else %}
+                    @ {{ stat.home_team }}
+                {% endif %}
+            </td>
+            <td>{{ stat.goals }}</td>
+            <td>{{ stat.assists }}</td>
+            <td>{{ stat.plus_minus }}</td>
+            <td>{{ stat.penalty_minutes }} min</td>
+            {% if player.position == 'Goalie' %}
+            <td>{{ stat.saves }}</td>
+            <td>{{ stat.shots_against }}</td>
+            {% endif %}
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="{% if player.position == 'Goalie' %}8{% else %}6{% endif %}" class="no-data">
+                Nav datu par šo spēlētāju
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

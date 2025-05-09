@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Spēļu Saraksts</h1>
+<table>
+    <tr>
+        <th>Datums</th>
+        <th>Mājas komanda</th>
+        <th>Viesu komanda</th>
+        <th>Rezultāts</th>
+        <th>Vieta</th>
+        <th>Detaļas</th>
+    </tr>
+    {% for game in games %}
+    <tr>
+        <td>{{ game.game_date }}</td>
+        <td>{{ game.home_team }}</td>
+        <td>{{ game.away_team }}</td>
+        <td>{{ game.score }}</td>
+        <td>{{ game.location }}</td>
+        <td><a href="{{ url_for('game_detail', game_id=game.game_id) }}">Skatīt</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
