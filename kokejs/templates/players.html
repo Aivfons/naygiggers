@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Spēlētāju Saraksts</h1>
+<table>
+    <tr>
+        <th>Vārds</th>
+        <th>Uzvārds</th>
+        <th>Komanda</th>
+    </tr>
+    {% for player in players %}
+    <tr>
+        <td>{{ player['first_name'] }}</td>
+        <td>{{ player['last_name'] }}</td>
+        <td>{{ player['team_name'] or 'Nav komandas' }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

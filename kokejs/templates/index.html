@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Latvijas Hokeja Datubāze</h1>
+<img src="/static/logo.png" alt="Logo" class="logo">
+<p>Šajā vietnē var apskatīt Latvijas hokeja komandas un spēlētājus.</p>
+<div class="stats">
+    <h3>Statistika</h3>
+    <p>Spēlētāju skaits: 9 <strong>{{ players_count }}</strong></p>
+    <p>Komandu skaits: 5<strong>{{ teams_count }}</strong></p>
+</div>
+{% endblock %}

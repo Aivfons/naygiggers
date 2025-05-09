@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Komandu Saraksts</h1>
+<table>
+    <tr>
+        <th>Nosaukums</th>
+        <th>Pilsēta</th>
+    </tr>
+    {% for team in teams %}
+    <tr>
+        <td>{{ team['name'] }}</td>
+        <td>{{ team['city'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
