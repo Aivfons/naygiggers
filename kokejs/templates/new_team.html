@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Pievienot jaunu komandu</h1>
+<form method="POST">
+    <label>Nosaukums:</label>
+    <input type="text" name="name" required>
+    
+    <label>Pilsēta:</label>
+    <input type="text" name="city" required>
+    
+    <label>Līga:</label>
+    <input type="text" name="league" required>
+    
+    <label>Dibināšanas gads:</label>
+    <input type="number" name="founded_year" required>
+    
+    <label>Arena:</label>
+    <input type="text" name="arena">
+    
+    <button type="submit">Saglabāt</button>
+</form>
+{% endblock %}

@@ -2,24 +2,35 @@
 
 {% block content %}
 <h1>Spēļu Saraksts</h1>
-<table>
-    <tr>
-        <th>Datums</th>
-        <th>Mājas komanda</th>
-        <th>Viesu komanda</th>
-        <th>Rezultāts</th>
-        <th>Vieta</th>
-        <th>Detaļas</th>
-    </tr>
-    {% for game in games %}
-    <tr>
-        <td>{{ game.game_date }}</td>
-        <td>{{ game.home_team }}</td>
-        <td>{{ game.away_team }}</td>
-        <td>{{ game.score }}</td>
-        <td>{{ game.location }}</td>
-        <td><a href="{{ url_for('game_detail', game_id=game.game_id) }}">Skatīt</a></td>
-    </tr>
-    {% endfor %}
+
+{% if games %}
+<table class="games-table">
+    <thead>
+        <tr>
+            <th>Datums</th>
+            <th>Tips</th>
+            <th>Mājas komanda</th>
+            <th>Viesu komanda</th>
+            <th>Rezultāts</th>
+            <th>Vieta</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for game in games %}
+        <tr>
+            <td>{{ game.game_date }}</td>
+            <td>{{ game.game_type }}</td>
+            <td>{{ game.home_team }}</td>
+            <td>{{ game.away_team }}</td>
+            <td class="score">{{ game.score }}</td>
+            <td>{{ game.location }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
+{% else %}
+<p class="no-games">Nav pievienotu spēļu.</p>
+{% endif %}
+
+<a href="/" class="back-link">Atpakaļ uz sākumlapu</a>
 {% endblock %}

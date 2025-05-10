@@ -148,3 +148,47 @@ th {
     color: #666;
     padding: 20px !important;
 }
+.games-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9em;
+}
+
+.games-table th {
+    background-color: #a00;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.games-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.games-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.score {
+    font-weight: bold;
+    color: #a00;
+}
+
+.no-games {
+    color: #666;
+    font-style: italic;
+    margin: 20px 0;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #a00;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

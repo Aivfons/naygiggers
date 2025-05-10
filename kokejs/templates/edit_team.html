@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Rediģēt komandu</h1>
+<form method="POST">
+    <label>Nosaukums:</label>
+    <input type="text" name="name" value="{{ team.name }}" required>
+    
+    <label>Pilsēta:</label>
+    <input type="text" name="city" value="{{ team.city }}" required>
+    
+    <label>Līga:</label>
+    <input type="text" name="league" value="{{ team.league }}" required>
+    
+    <label>Dibināšanas gads:</label>
+    <input type="number" name="founded_year" value="{{ team.founded_year }}" required>
+    
+    <label>Arena:</label>
+    <input type="text" name="arena" value="{{ team.arena or '' }}">
+    
+    <button type="submit">Atjaunot</button>
+</form>
+{% endblock %}
